@@ -1,7 +1,20 @@
 import { useEffect, useState } from "react";
 import { VscError } from "react-icons/vsc"
+import CartItem from "../components/cart-items";
 
-const cartItems = [];
+const cartItems = [
+  {
+    productId:"assss",
+    photo:"https://rukminim2.flixcart.com/image/416/416/kp5sya80/screen-guard/tempered-glass/o/v/n/apple-macbook-air-m1-13-3-inch-lightwings-original-imag3gh5xftgbpg3.jpeg?q=70",
+    name: "MacBook",
+    price:30000,
+    stock:10,
+    quantity:2,
+
+  }
+];
+
+
 const subtotal = 4000;
 const tax = Math.round(subtotal * 0.18);
 const shippingCharges = 200;
@@ -12,23 +25,28 @@ function Cart() {
   const [couponCode, setCouponCode] = useState<string>("");
   const [isValidCouponCode, setIsValidCouponCode] = useState<boolean>(false);
 
-  useEffect(()=>{
-
-    const timeOutId= setTimeout(()=>{
-      if(Math.random()>0.5){
+  useEffect(() => {
+    const timeOutId = setTimeout(() => {
+      if (Math.random() > 0.5) {
         setIsValidCouponCode(true)
       }
-      else{
+      else {
         setIsValidCouponCode(false)
       }
-    },1000)
-    return ()=>{
+    }, 1000)
+    return () => {
       clearTimeout(timeOutId);
     }
-  },[couponCode])
+  }, [couponCode])
   return (
     <div className="cart">
-      <main></main>
+      <main>
+        {
+          cartItems.map((i,idx)=>(
+            <CartItem key={idx} cartItem={i}/>
+            ))
+        }
+      </main>
       <aside>
         <p>SubTotal : ${subtotal}</p>
         <p>Shipping Charges : ${shippingCharges}</p>
