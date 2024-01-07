@@ -15,7 +15,7 @@ const Home = () => {
         <ProductCard 
         productId="abvd" 
         name="Macbook" 
-        price={200000} 
+        price={30000} 
         stock={2} 
         photo="https://rukminim2.flixcart.com/image/416/416/kp5sya80/screen-guard/tempered-glass/o/v/n/apple-macbook-air-m1-13-3-inch-lightwings-original-imag3gh5xftgbpg3.jpeg?q=70" 
         handler={addToCartHandler}/>

@@ -59,7 +59,7 @@
     padding: 1rem;
     @include flex(row, flex-start, center, 3rem);
     > img {
-      @include square(10rem);
+      @include square(30rem);
       object-fit: contain;
     }
   

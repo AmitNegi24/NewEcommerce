@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { VscError } from "react-icons/vsc"
 import CartItem from "../components/cart-items";
+import { Link } from "react-router-dom";
 
 const cartItems = [
   {
-    productId:"assss",
-    photo:"https://rukminim2.flixcart.com/image/416/416/kp5sya80/screen-guard/tempered-glass/o/v/n/apple-macbook-air-m1-13-3-inch-lightwings-original-imag3gh5xftgbpg3.jpeg?q=70",
+    productId: "assss",
+    photo: "https://rukminim2.flixcart.com/image/416/416/kp5sya80/screen-guard/tempered-glass/o/v/n/apple-macbook-air-m1-13-3-inch-lightwings-original-imag3gh5xftgbpg3.jpeg?q=70",
     name: "MacBook",
-    price:30000,
-    stock:10,
-    quantity:2,
+    price: 30000,
+    stock: 10,
+    quantity: 2,
 
   }
 ];
@@ -42,16 +43,17 @@ function Cart() {
     <div className="cart">
       <main>
         {
-          cartItems.map((i,idx)=>(
+          cartItems.length > 0 ? cartItems.map((i,idx)=>(
             <CartItem key={idx} cartItem={i}/>
             ))
+            :<h1>No Items Added</h1>
         }
       </main>
       <aside>
         <p>SubTotal : ${subtotal}</p>
         <p>Shipping Charges : ${shippingCharges}</p>
         <p>Tax : ${tax}</p>
-        <p>Discount : <em> - ${discount}</em></p>
+        <p>Discount : <em className="green"> - ${discount}</em></p>
         <p>
           <b>Total : ${total}</b>
         </p>
@@ -59,6 +61,10 @@ function Cart() {
         {
           couponCode && (isValidCouponCode ? (<span className="green">${discount} off using the <code>{couponCode}</code></span>)
             : (<span className="red">Invalid Coupon Code <VscError /></span>))
+        }
+
+        {
+          cartItems.length > 0 && <Link to="/shipping">Checkout</Link>
         }
       </aside>
     </div>
