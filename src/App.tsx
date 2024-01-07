@@ -37,7 +37,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/shipping" element={<Shipping />} />
+
+          {/* logged in user routes */}
+
+          <Route>
+            <Route path="/shipping" element={<Shipping />} />
+          </Route>
+
           {/* Admin Routes */}
 
           <Route
