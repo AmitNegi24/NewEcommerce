@@ -2,8 +2,11 @@ import { ChangeEvent, useState } from "react"
 import { BiArrowBack } from "react-icons/bi"
 import { useNavigate } from "react-router-dom"
 
-const navigate = useNavigate()
+
 function Shipping() {
+
+    const navigate = useNavigate();
+    
     const [shippingInfo, setShippingInfo] = useState({
         address: "",
         city: "",
@@ -16,7 +19,7 @@ function Shipping() {
     }
     return (
         <div className="shipping">
-            <button className="back-btn" onClick={()=>navigate('/cart') }><BiArrowBack /></button>
+            <button className="back-btn" onClick={() => navigate("/cart")}> <BiArrowBack /></button>
             <form>
                 <h1>Shipping Address</h1>
                 <input required type="text" placeholder="Address" name="address" value={shippingInfo.address} onChange={changeHandler} />
@@ -33,4 +36,4 @@ function Shipping() {
     )
 }
 
-export default Shipping
+export default Shipping;
