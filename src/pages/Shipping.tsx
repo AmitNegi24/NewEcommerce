@@ -14,6 +14,7 @@ function Shipping() {
         country: "",
         pinCode: "",
     })
+    // Handler for form input changes
     const changeHandler = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setShippingInfo(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }
